@@ -8,8 +8,8 @@ _ft_write:
 	ret
 
 _error:
-	;mov r10, rax
-    ;call ___error
-    ;mov qword [rax], r10
-    mov rax, -1
-    ret
+	push rax
+	call ___error
+	pop qword [rax]
+	or rax, -1
+	ret
